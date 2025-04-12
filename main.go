@@ -78,8 +78,14 @@ func postToDiscord(message string) error {
 func main() {
 	c := cron.New()
 
-	_, err := c.AddFunc("@every 1h", func() {
-		log.Info("Running scheduled IP change detection...")
+	schedule := os.Getenv("SCHEDULE")
+	if schedule == "" {
+		schedule = "@every 1h"
+	}
+	log.Info("IP address check schedule is " + schedule)
+
+	_, err := c.AddFunc(schedule, func() {
+		log.Info("Running scheduled IP change detection")
 		result, err := ipaddress.DetectChange()
 		if err != nil {
 			log.Error("Error detecting IP change: ", err)
