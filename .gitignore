@@ -1,0 +1,24 @@
+.DS_Store
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Test binary, build output
+*.test
+*.out
+
+# Output of the go coverage tool
+*.cover
+
+# Dependency directories (vendor/)
+vendor/
+
+# Go module files
+go.sum
+
+# Environment and sensitive files
+.env
+
+# Application-specific files
+last_ip.txt
