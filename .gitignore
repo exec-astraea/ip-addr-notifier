@@ -14,9 +14,6 @@
 # Dependency directories (vendor/)
 vendor/
 
-# Go module files
-go.sum
-
 # Environment and sensitive files
 .env
 
