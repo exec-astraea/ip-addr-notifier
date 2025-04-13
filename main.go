@@ -20,11 +20,12 @@ type DiscordMessage struct {
 var log = logrus.New()
 
 func init() {
+	log.SetFormatter(&logrus.JSONFormatter{})
+
 	if err := godotenv.Load(); err != nil {
 		log.Warn("No .env file found. Proceeding without it.")
 	}
 
-	log.SetFormatter(&logrus.JSONFormatter{})
 	logLevel := os.Getenv("LOG_LEVEL")
 	if level, err := logrus.ParseLevel(logLevel); err == nil {
 		log.SetLevel(level)
