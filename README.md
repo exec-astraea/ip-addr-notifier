@@ -41,6 +41,19 @@ Before running ensure that all required envs are set.
    docker run --rm ip-addr-notifier
    ```
 
+### Using Docker Compose
+
+```yaml
+services:
+  ip-addr-notifier:
+    image: ghcr.io/exec-astraea/ip-change-notifier:latest
+    environment:
+      - DISCORD_WEBHOOK_URL=${DISCORD_WEBHOOK_URL}
+      - SCHEDULE=${SCHEDULE}
+    volumes:
+      - /srv/ip-addr-notifier/last_ip.txt:/app/last_ip.txt
+```
+
 ## License
 
 This project is licensed under the GNU General Public License v3.0. See the [LICENSE](./LICENSE) file for details.
